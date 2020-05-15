@@ -11,3 +11,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Rating(models.Model):
+    rate = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
